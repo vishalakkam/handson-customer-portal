@@ -11,7 +11,7 @@ pipeline {
 
         stage('Build') {
             steps {
-               bat '"C:\Users\Vishal Akkam\AppData\Local\Programs\Python\Python313\python.exe" -m compileall app'
+               bat '"C:/Users/Vishal Akkam/AppData/Local/Programs/Python/Python313/python.exe" -m compileall app'
             }
         }
 
