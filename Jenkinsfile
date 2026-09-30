@@ -23,20 +23,20 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                bat 'docker build -t customer-portal:build-%BUILD_NUMBER% .'
+                bat '"C:/Users/Vishal Akkam/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe" build -t customer-portal:build-%BUILD_NUMBER% .'
             }
         }
 
         stage('Container Verification') {
             steps {
-                bat 'docker run -d --name customer-portal-test -p 8081:8080 customer-portal:build-%BUILD_NUMBER%'
+                bat '"C:/Users/Vishal Akkam/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe" run -d --name customer-portal-test -p 8081:8080 customer-portal:build-%BUILD_NUMBER%'
                 bat 'curl --fail http://localhost:8081/health'
             }
         }
 
         stage('Cleanup') {
             steps {
-                bat 'docker rm -f customer-portal-test'
+               bat '"C:/Users/Vishal Akkam/AppData/Local/Programs/DockerDesktop/resources/bin/docker.exe" rm -f customer-portal-test'
             }
         }
 
